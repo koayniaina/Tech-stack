@@ -9,7 +9,7 @@ router.post("/", async (req, res) => {
     const { title, status } = req.body;
     const ticket = new Ticket({
       title,
-      status: status || "open", // default to open
+      status: status || "open",
     });
     await ticket.save();
     res.status(201).json(ticket);

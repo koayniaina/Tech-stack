@@ -15,7 +15,6 @@ export const protect = async (req, res, next) => {
         return res.status(401).json({ message: "User not found" });
       }
 
-      // ajoute userId pour tes requêtes
       req.userId = req.user._id;
 
       next();

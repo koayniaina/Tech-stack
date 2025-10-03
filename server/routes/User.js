@@ -81,10 +81,6 @@ router.post("/login", async (req, res) => {
   }
 });
 
-
-// @desc    Get current user
-// @route   GET /me
-// @access  Private
 router.get("/me", protect, async (req, res) => {
   res.status(200).json(req.user);
 });

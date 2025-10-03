@@ -13,10 +13,10 @@ const ticketSchema = new mongoose.Schema(
       default: "open",
     },
   },
-  { timestamps: true } // automatically adds createdAt and updatedAt
+  { timestamps: true } 
 );
 
-// Mongoose automatically adds _id (ObjectId) as the unique identifier for each document
+
 const Ticket = mongoose.model("Ticket", ticketSchema);
 
 export default Ticket;
