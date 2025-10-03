@@ -1,11 +1,19 @@
-const express = require('express');
+import express from "express";
+import dotenv from "dotenv";
+import { connectDB } from "./config/db.js";
+import Ticket from './routes/Ticket.js';
+import User from  './routes/User.js'
 const app = express();
-const port = 3000;
 
-app.get('/', (req, res) => {
-    res.send('Hello World!');
-});
+app.use(express.json());
+dotenv.config();
 
-app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}`);
+const PORT = process.env.PORT || 5000;
+// routes
+app.use("/user", User);
+app.use("/ticket", Ticket);
+
+app.listen(PORT, () => {
+  connectDB();
+  console.log(`This is running on port ${PORT}`);
 });
